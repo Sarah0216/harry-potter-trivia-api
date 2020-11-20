@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/random", (req, res) => {
-  Question.findRandom({}, {}, { limit: 2 }, function (err, results) {
+  Question.findRandom({}, {}, { limit: 10 }, function (err, results) {
     if (!err) {
       const shuffledResults = results.map((item) => ({
         ...item._doc,
@@ -62,6 +62,7 @@ app.post("/player", (req, res) => {
   const player = new Player({
     score: req.body.score,
     name: req.body.name,
+    score: req.body.score,
   });
   player.save().then((response) => res.status(200).json(response));
 });
