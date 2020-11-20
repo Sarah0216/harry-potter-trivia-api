@@ -62,7 +62,7 @@ app.post("/player", (req, res) => {
   const player = new Player({
     score: req.body.score,
     name: req.body.name,
-    score: req.body.score,
+    house: req.body.house,
   });
   player.save().then((response) => res.status(200).json(response));
 });
